@@ -1,0 +1,48 @@
+/* Open this file in VS Code to see the color highlights. */
+
+:root {
+  --red: #e63946;
+  --coral: #f77f00;
+  --yellow: #fcbf49;
+  --lime: #a7c957;
+  --green: #2a9d8f;
+  --teal: #00b4d8;
+  --sky: #48cae4;
+  --blue: #277da1;
+  --navy: #1d3557;
+  --purple: #7209b7;
+  --pink: #f72585;
+  --magenta: #b5179e;
+  --brown: #8d5524;
+  --cream: #fefae0;
+  --gray: #6c757d;
+  --charcoal: #343a40;
+  --white: #ffffff;
+  --black: #000000;
+  --mint: #d8f3dc;
+  --lavender: #cdb4db;
+}
+
+.color-swatch-red {
+  color: #e63946;
+}
+
+.color-swatch-blue {
+  color: #277da1;
+}
+
+.color-swatch-green {
+  color: #2a9d8f;
+}
+
+.color-swatch-purple {
+  color: #7209b7;
+}
+
+.color-swatch-pink {
+  color: #f72585;
+}
+
+.color-swatch-orange {
+  color: #f77f00;
+}

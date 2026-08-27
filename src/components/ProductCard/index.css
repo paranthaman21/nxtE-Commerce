@@ -8,6 +8,11 @@
   border: 1px solid #eaeded;
 }
 
+.product-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .thumbnail {
   width: 100%;
   height: 220px;

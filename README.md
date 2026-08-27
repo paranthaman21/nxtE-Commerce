@@ -1,223 +1,163 @@
-In this project, let's build a **Nxt Trendz - Products Filters Group** app by applying the concepts we have learned till now.
+# Nxt Trendz
 
-### Refer to the images below:
+> A responsive e-commerce storefront built with React, featuring authenticated shopping, product discovery, detailed product views, and a persistent cart experience.
 
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-output-v0.gif" alt="products filters group output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
+<p align="center">
+  <img src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png" alt="Nxt Trendz logo" width="180" />
+</p>
 
-**Failure View**
+<p align="center">
+  <a href="#features">Features</a> | <a href="#tech-stack">Tech Stack</a> | <a href="#getting-started">Getting Started</a> | <a href="#project-structure">Project Structure</a>
+</p>
 
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-failure-view-output.gif" alt="products filters group failure output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
+## Overview
 
-### Design Files
+Nxt Trendz is a polished shopping experience inspired by modern retail platforms. Users can sign in, browse products and exclusive deals, refine results using multiple filters, inspect product details, choose a quantity, and manage items in a persistent cart.
 
-<details>
-<summary>Click to view</summary>
+The project demonstrates practical React application patterns including protected routing, API integration, asynchronous UI states, reusable components, responsive layouts, and browser storage.
 
-- [Extra Small (Size < 576px) and Small (Size >= 576px) - Products](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-sm-output-v2.png)
-- [Extra Small (Size < 576px) and Small (Size >= 576px) - No Products](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-sm-no-products-output-v0.png)
-- [Extra Small (Size < 576px) and Small (Size >= 576px) - Failure View](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-sm-failure-view-output.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Products](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-output-v2.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - No Products](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-no-products-output.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Failure View](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-failure-view.png)
+## Preview
 
-</details>
+![Nxt Trendz storefront preview](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-output-v0.gif)
 
-### Set Up Instructions
+## Features
 
-<details>
-<summary>Click to view</summary>
+- **Authentication:** Login through the API with JWT token storage in cookies.
+- **Protected navigation:** Home, Products, Product Details, and Cart routes require authentication.
+- **Product discovery:** Browse the complete catalog and exclusive Prime Deals.
+- **Search and filtering:** Search by title and filter by category and minimum rating.
+- **Sorting:** Sort products by price from high to low or low to high.
+- **Resilient API states:** Dedicated loading, empty-results, failure, and retry experiences.
+- **Product details:** View pricing, brand, availability, reviews, description, and similar products.
+- **Cart workflow:** Add products with a chosen quantity, update quantities, remove items, and view a live subtotal.
+- **Persistent cart:** Cart contents are retained in `localStorage` between page visits.
+- **Responsive UI:** Desktop and mobile navigation and layouts adapt across screen sizes.
+- **Accessible interactions:** Semantic form controls, descriptive image alt text, and keyboard-friendly search.
 
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
-</details>
+## Tech Stack
 
-### Completion Instructions
+- React 17
+- React Router DOM 5
+- JavaScript (ES6+)
+- CSS3 with responsive media queries
+- Fetch API
+- `js-cookie` for JWT cookie management
+- `react-loader-spinner` for loading states
+- `react-icons` for interface controls
+- Create React App / React Scripts
+- Jest and React Testing Library
+- ESLint and Prettier
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
+## Application Routes
 
-The app must have the following functionalities
+| Route | Description | Access |
+| --- | --- | --- |
+| `/login` | User authentication | Public |
+| `/` | Store home page | Protected |
+| `/products` | Product catalog, deals, filters, and sorting | Protected |
+| `/products/:id` | Product details and similar products | Protected |
+| `/cart` | Persistent shopping cart and order summary | Protected |
+| `/not-found` | Fallback route | Public |
 
-- When an authenticated user opens the Products Route,
+## Getting Started
 
-  - An HTTP GET request should be made to **productsApiUrl** with `jwt_token` in the Cookies and query parameters `title_search`, `category`, and `rating` with initial values as **empty strings**
-    - **_loader_** should be displayed while fetching the data
-    - After the data is fetched successfully, display the products list received in the response
-    - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-failure-view.png) should be displayed
-  - When a non-empty value is provided in the Search Input and the **Enter** button is clicked
-    - Make an HTTP GET request to the **productsApiUrl** with `jwt_token` in the Cookies and query parameter `title_search` with value as the text provided in the Search Input
-    - **_loader_** should be displayed while fetching the data
-    - After the data is fetched successfully, display the products list received in the response
-  - When a **Category** is clicked
-    - Make an HTTP GET request to the URL **productsApiUrl** with `jwt_token` in the Cookies and query parameter `category` with value as the id of the category clicked
-    - **_loader_** should be displayed while fetching the data
-    - After the data is fetched successfully, display the products list received in the response
-  - When a **Rating** is clicked
-    - Make an HTTP GET request to the URL **productsApiUrl** with `jwt_token` in the Cookies and query parameter `rating` with value as the id of the rating clicked
-    - **_loader_** should be displayed while fetching the data
-    - After the data is fetched successfully, display the products list received in the response
-  - When the **Clear Filters** button is clicked
-    - All the filters applied should be reset to initial values
-    - Make an HTTP GET request to the URL **productsApiUrl** with`jwt_token` in the Cookies and without any filters
-    - **_loader_** should be displayed while fetching the data
-    - After the data is fetched successfully, display the products list received in the response
-  - When multiple filters are applied, then the HTTP GET request should be made with all the filters that are applied
+### Prerequisites
 
-  - For example: When the **Electronics** Category is clicked and rating **4 and above** is clicked the **productsApiUrl** will be as follows
+- Node.js 24.x
+- npm 6 or later
 
-  ```js
-  const apiUrl = 'https://apis.ccbp.in/products?sort_by=PRICE_HIGH&category=2&title_search=&rating=4'
-  ```
+### Installation
 
-  - If the HTTP GET request returns empty products list, then [No Products View](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-no-products-output.png) should be displayed.
-  - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-lg-failure-view.png) should be displayed
-
-  - The `AllProductsSection` component will consist `categoryOptions`. It consists of a list of category option objects with the following properties in each category option object
-
-  |    Key     | Data Type |
-  | :--------: | :-------: |
-  | categoryId |  String   |
-  |    name    |  String   |
-
-  - The `AllProductsSection` component will consist `ratingOption`. It consists of a list of category rating option objects with the following properties in each rating option object
-
-  |   Key    | Data Type |
-  | :------: | :-------: |
-  | ratingId |  String   |
-  | imageUrl |  String   |
-
-</details>
-
-<details>
-
-<summary>API Requests & Responses</summary>
-<br/>
-
-**productsApiUrl**
-
-#### API: `https://apis.ccbp.in/products`
-
-#### Example: `https://apis.ccbp.in/products?sort_by=PRICE_HIGH&category=4&title_search=machine&rating=4`
-
-#### Method: `GET`
-
-#### Description:
-
-Returns a response containing the list of Products
-
-#### Success Response
-
-```json
-{
-  "products": [
-    {
-      "title": "Front Load Machine",
-      "brand": "Samsung",
-      "price": 22490,
-      "id": 24,
-      "image_url": "https://assets.ccbp.in/frontend/react-js/ecommerce/appliances-washing-machine.png",
-      "rating": 4.5,
-    },
-      ....
-  ]
-}
+```bash
+git clone <your-repository-url>
+cd nxtE-Commerce
+npm install
 ```
 
-</details>
+### Run locally
 
-<details>
-<summary>Components Structure</summary>
+```bash
+npm start
+```
 
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-products-filter-group-component-structure-breakdown.png" alt="component-breakdown-structure" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
+The app opens at `http://localhost:3000`.
 
-</details>
+### Production build
 
-<details>
-<summary>Implementation Files</summary>
-<br/>
+```bash
+npm run build
+```
 
-Use these files to complete the implementation:
+### Quality checks
 
-- `src/components/AllProductsSection/index.js`
-- `src/components/AllProductsSection/index.css`
-- `src/components/FiltersGroup/index.js`
-- `src/components/FiltersGroup/index.css`
-</details>
+```bash
+npm test
+npm run lint
+```
 
-### Important Note
+## Demo Credentials
 
-<details>
-<summary>Click to view</summary>
+Use the following credentials to explore the authenticated experience:
 
-<br/>
+```text
+Username: raja
+Password: raja@2021
+```
 
-**The following instructions are required for the tests to pass**
+## API Integration
 
-- `Home` Route should consist of `/` in the URL path
-- `Login` Route should consist of `/login` in the URL path
-- `Products` Route should consist of `/products` in the URL path
-- `Cart` Route should consist of `/cart` in the URL path
-- No need to use the `BrowserRouter` in `App.js` as we have already included in `index.js`
+The app consumes the Nxt Trendz API and sends the JWT token as a Bearer token for authenticated requests.
 
-- User credentials
+| Endpoint | Purpose |
+| --- | --- |
+| `POST https://apis.ccbp.in/login` | Authenticate a user and receive a JWT |
+| `GET https://apis.ccbp.in/products` | Fetch products with search, category, rating, and sort parameters |
+| `GET https://apis.ccbp.in/products/:id` | Fetch product details and similar products |
+| `GET https://apis.ccbp.in/prime-deals` | Fetch exclusive Prime Deals |
 
-  ```text
-   username: raja
-   password: raja@2021
-  ```
+Example catalog request:
 
-- The rating stars images in the route should have the alt attribute value as **rating {ratingId}**
+```text
+https://apis.ccbp.in/products?sort_by=PRICE_HIGH&category=2&title_search=&rating=4
+```
 
-</details>
+## Project Structure
 
-### Resources
+```text
+src/
+|-- App.js                         # Route configuration
+|-- App.css                        # Global application styles
+|-- color-palette.css              # Shared color tokens
+|-- index.js                       # React entry point and BrowserRouter
+`-- components/
+  |-- AllProductsSection/        # Catalog data fetching and product states
+  |-- Cart/                      # Cart persistence, quantities, and totals
+  |-- FiltersGroup/              # Category and rating filters
+  |-- Header/                    # Responsive navigation and logout
+  |-- Home/                      # Store landing page
+  |-- LoginForm/                 # Authentication form
+  |-- NotFound/                  # Unknown route experience
+  |-- PrimeDealsSection/         # Exclusive deals data and presentation
+  |-- ProductCard/               # Reusable product preview
+  |-- ProductItemDetails/        # Product details and add-to-cart flow
+  |-- Products/                  # Catalog page composition
+  |-- ProductsHeader/            # Sorting controls and result header
+  |-- ProtectedRoute/            # Cookie-based route guard
+  `-- SimilarProductItem/        # Related product preview
+```
 
-<details>
-<summary>Image URLs</summary>
+## Engineering Highlights
 
-- [https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png](https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png) alt should be **no products**
-- [https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-products-error-view.png](https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-products-error-view.png) alt should be **products failure**
+- Centralized route protection keeps unauthenticated users inside the login flow.
+- Product filters are composed into a single API request so multiple selections work together.
+- API responses are mapped into UI-friendly models before reaching reusable product cards.
+- Cart updates are synchronized between React state and `localStorage`.
+- Components separate data fetching, page composition, filtering controls, and product presentation.
 
-</details>
+## Resume Summary
 
-<details>
-<summary>Colors</summary>
+Built a responsive React e-commerce application with JWT authentication, protected routes, REST API integration, multi-criteria product filtering, sorting, loading and error handling, product detail views, and a persistent local-storage shopping cart.
 
-<br/>
+## License
 
-<div style="background-color: #f1f5f9; width: 150px; padding: 10px; color: black">Hex: #f1f5f9</div>
-<div style="background-color: #0f172a; width: 150px; padding: 10px; color: white">Hex: #0f172a</div>
-<div style="background-color: #12022f; width: 150px; padding: 10px; color: white">Hex: #12022f</div>
-<div style="background-color: #64748b; width: 150px; padding: 10px; color: white">Hex: #64748b</div>
-<div style="background-color: #475569; width: 150px; padding: 10px; color: white">Hex: #475569</div>
-<div style="background-color: #0967d2; width: 150px; padding: 10px; color: white">Hex: #0967d2</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
-
-</details>
-
-<details>
-<summary>Font-families</summary>
-
-- Roboto
-
-</details>
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
+This project was created for learning and portfolio demonstration purposes.

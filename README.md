@@ -69,7 +69,7 @@ The project demonstrates practical React application patterns including protecte
 ### Installation
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/paranthaman21/nxtE-Commerce>
 cd nxtE-Commerce
 npm install
 ```

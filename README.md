@@ -97,12 +97,14 @@ npm run lint
 
 ## Demo Credentials
 
-Use the following credentials to explore the authenticated experience:
+Use the following demo credentials to explore the authenticated experience on the deployed build:
 
 ```text
-Username: raja
-Password: raja@2021
+Username: rahul
+Password: rahul@2021
 ```
+
+These credentials are provided for learning and portfolio demonstration purposes.
 
 ## API Integration
 

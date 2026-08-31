@@ -20,6 +20,10 @@ class LoginForm extends Component {
     this.setState({password: event.target.value})
   }
 
+  onUseDemoCredentials = (username, password) => {
+    this.setState({username, password})
+  }
+
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
 
@@ -120,6 +124,44 @@ class LoginForm extends Component {
           />
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>
+
+          <div className="demo-credentials-panel" aria-label="Demo credentials">
+            <p className="demo-credentials-title">Demo Credentials</p>
+            <p className="demo-credentials-note">
+              This is for viewing purpose only.
+            </p>
+
+            <div className="demo-credentials-row">
+              <div className="demo-credential-details">
+                <span className="demo-role">Prime User</span>
+                <span className="demo-value">Username: rahul</span>
+                <span className="demo-value">Password: rahul@2021</span>
+              </div>
+              <button
+                type="button"
+                className="demo-credentials-button"
+                onClick={() => this.onUseDemoCredentials('rahul', 'rahul@2021')}
+              >
+                Use
+              </button>
+            </div>
+
+            <div className="demo-credentials-row">
+              <div className="demo-credential-details">
+                <span className="demo-role">Non-Prime User</span>
+                <span className="demo-value">Username: raja</span>
+                <span className="demo-value">Password: raja@2021</span>
+              </div>
+              <button
+                type="button"
+                className="demo-credentials-button"
+                onClick={() => this.onUseDemoCredentials('raja', 'raja@2021')}
+              >
+                Use
+              </button>
+            </div>
+          </div>
+
           <button type="submit" className="login-button">
             Login
           </button>

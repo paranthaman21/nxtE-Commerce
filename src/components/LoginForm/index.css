@@ -110,6 +110,74 @@
   outline: none;
 }
 
+.demo-credentials-panel {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid #dfe7f0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+.demo-credentials-title {
+  margin: 0 0 6px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo-credentials-note {
+  margin: 0 0 10px;
+  font-family: 'Roboto';
+  font-size: 11px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.demo-credentials-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid #e2e8f0;
+  font-family: 'Roboto';
+  color: #475569;
+}
+
+.demo-credentials-row:first-of-type {
+  border-top: none;
+}
+
+.demo-credential-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.demo-role {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.demo-value {
+  color: #475569;
+}
+
+.demo-credentials-button {
+  border: 1px solid #0b69ff;
+  background-color: #ffffff;
+  color: #0b69ff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 .login-button {
   font-family: 'Roboto';
   font-weight: bold;
